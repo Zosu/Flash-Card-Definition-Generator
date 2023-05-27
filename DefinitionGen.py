@@ -3,6 +3,9 @@ import sys
 
 # Takes a list of words and outputs a text file with words on each line and a definition separated by a chosen delimiter
 
+# delimiter defined here:
+delimiter = '='
+
 def get_definition(word):
     url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
     response = requests.get(url)
@@ -14,12 +17,11 @@ def get_definition(word):
         return "Definition not found"
 
 if len(sys.argv) != 3:
-    print("Usage: python DefintionGen.py input_list_name.txt output_list_name delimiter")
+    print("Usage: python DefintionGen.py input_list_name.txt output_list_name")
     sys.exit(1)
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
-delimiter = sys.argv[3]
 
 if not output_file.endswith(".txt"):
     output_file += ".txt"
