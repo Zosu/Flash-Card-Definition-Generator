@@ -29,7 +29,7 @@ if not output_file.endswith(".txt"):
 with open(input_file, "r") as f:
     words = f.read().splitlines()
 
-with open(output_file, "w") as f:
+with open(output_file, "w", encoding="utf-8") as f:
     for word in words:
         definition = get_definition(word)
         f.write(f"{word}{delimiter}{definition}\n")
